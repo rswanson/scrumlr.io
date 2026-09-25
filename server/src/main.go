@@ -419,6 +419,7 @@ func main() {
 			&cli.BoolFlag{
 				Name: "disable-check-origin",
 				Sources: cli.NewValueSourceChain(
+					cli.EnvVar("SCRUMLR_DISABLE_CHECK_ORIGIN"),
 					toml.TOML("disable-check-origin", altsrc.NewStringPtrSourcer(&tomlconfigFile)),
 				),
 				Usage: "disable check origin (strongly suggestion to only use this for development)",
